@@ -5,7 +5,7 @@
 ```console
 SHADOWX-BOT v2.0 ── Facebook Messenger Automation Engine
 🛠️  Modified by MUEID MURSALIN RIFAT
-🟢  status: online   ⚡ engine: fca-nx   🐘 database: Neon
+🟢  status: online   ⚡ engine: shadowx-fca   🐘 database: Neon
 ```
 
 **A full-stack, event-driven Messenger engine built for scale, speed, and control.**
@@ -14,13 +14,13 @@ SHADOWX-BOT v2.0 ── Facebook Messenger Automation Engine
 
 <br>
 
-<a href="https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED"><img src="https://img.shields.io/github/stars/mueidmursalinrifat/GOAT-BOT-UPDATED?style=for-the-badge&logo=github&label=STARS&color=7000FF" alt="Stars"></a>
-<a href="https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED"><img src="https://img.shields.io/github/last-commit/mueidmursalinrifat/GOAT-BOT-UPDATED?style=for-the-badge&logo=github&label=LAST%20UPDATE&color=FFD700" alt="Last Commit"></a>
-<a href="https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED/blob/main/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-7000FF?style=for-the-badge" alt="License"></a>
+<a href="https://github.com/mueidmursalinrifat/shadowx-bot"><img src="https://img.shields.io/github/stars/mueidmursalinrifat/shadowx-bot?style=for-the-badge&logo=github&label=STARS&color=7000FF" alt="Stars"></a>
+<a href="https://github.com/mueidmursalinrifat/shadowx-bot"><img src="https://img.shields.io/github/last-commit/mueidmursalinrifat/shadowx-bot?style=for-the-badge&logo=github&label=LAST%20UPDATE&color=FFD700" alt="Last Commit"></a>
+<a href="https://github.com/mueidmursalinrifat/shadowx-bot/blob/main/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-7000FF?style=for-the-badge" alt="License"></a>
 <img src="https://img.shields.io/badge/NODE-22.x-00D9FF?style=for-the-badge&logo=node.js&logoColor=white" alt="Node 22">
-<img src="https://img.shields.io/badge/ENGINE-fca--nx-7000FF?style=for-the-badge" alt="fca-nx">
+<img src="https://img.shields.io/badge/ENGINE-shadowx--fca-7000FF?style=for-the-badge" alt="shadowx-fca">
 
-🌐 [Portfolio](https://mueidmursalinrifat.onrender.com) • 📘 [Facebook](https://www.facebook.com/mueid.mursalin.rifat1) • 📦 [Repository](https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED)
+🌐 [Portfolio](https://mueidmursalinrifat.onrender.com) • 📘 [Facebook](https://www.facebook.com/mueid.mursalin.rifat1) • 📦 [Repository](https://github.com/mueidmursalinrifat/shadowx-bot)
 
 </div>
 
@@ -56,12 +56,12 @@ root@shadowx:~$ ./shadowx-bot --help
 ```console
 root@shadowx:~$ ./shadowx-bot --describe
 [ OK ] account link   : personal facebook
-[ OK ] listener       : fca-nx realtime events
+[ OK ] listener       : shadowx-fca realtime events
 [ OK ] pipeline       : command + event router
 [ OK ] boot complete  : ready to serve
 ```
 
-SHADOWX-BOT links a personal Facebook account through `fca-nx`, listens to real-time events, and pushes every message through a fast command and event pipeline.
+SHADOWX-BOT links a personal Facebook account through `shadowx-fca`, listens to real-time events, and pushes every message through a fast command and event pipeline.
 
 Three ideas guide the build.
 
@@ -81,7 +81,7 @@ The result is a large command library with economy, social, gaming, media, AI, g
 root@shadowx:~$ ./shadowx-bot --highlights
 [1/8] 🎨 identity and banner rebuilt
 [2/8] 🐘 neon postgres attached
-[3/8] ⚡ fca-nx session online
+[3/8] ⚡ shadowx-fca session online
 [4/8] 🚀 command library verified
 [5/8] 💎 premium gate armed
 [6/8] 🖥️ dashboard reachable
@@ -92,8 +92,8 @@ root@shadowx:~$ ./shadowx-bot --highlights
 
 - 🎨 Rebuilt identity, banner, and documentation
 - 🐘 Neon PostgreSQL by default, with SQLite, JSON, and MongoDB available
-- ⚡ `fca-nx` login with E2EE bootstrap and appstate backup
-- 🚀 200+ commands across nine categories
+- ⚡ `shadowx-fca` login with E2EE bootstrap and appstate backup
+- 🚀 226 commands across nine categories
 - 💎 Premium membership with expiry tracking
 - 🖥️ Dashboard with verification codes and account controls
 - 🔧 Self-healing native modules for `canvas`, `sqlite3`, and `bcrypt`
@@ -107,132 +107,12 @@ root@shadowx:~$ ./shadowx-bot --highlights
 root@shadowx:~$ ./shadowx-bot --commands
 [ OK ] scanning command registry...
 [ OK ] 9 categories loaded
-[ OK ] 200+ commands mounted
+[ OK ] 226 commands mounted
 [ OK ] permissions attached
 [ READY ] use .help in chat to explore
 ```
 
-### 🤖 AI and images
-
-```console
-root@shadowx:~$ ./shadowx-bot --ai-list
-[ OK ] loading AI & image generators...
-[ OK ] gpt, dalle, flux, midjourney, nanobanana, gemini, text2image, 4k tools ready
-```
-
-| Command | Action |
-|---|---|
-| `gpt` | Generate or edit an image from a prompt, including reply-to-image edits |
-| `dalle` | DALL-E 3 generation |
-| `flux` | Flux.1-schnell high-quality output |
-| `midjourney` | Four images in a grid, then reply a number to pick one |
-| `nanobanana` | Nano Banana text-to-image |
-| `gemini` | Gemini Vision reading text and replied photos |
-| `text2image` | Push text into a picture |
-| `4k`, `4k-pro` | Upscale and enhance quality |
-| `imagefilter`, `rbg`, `unblur` | Filters, background work, sharpening |
-| `caption`, `edit`, `album` | Captions, edits, album handling |
-
-### 🎬 Anime and media
-
-```console
-root@shadowx:~$ ./shadowx-bot --media-list
-[ OK ] loading anime and media commands...
-[ OK ] song, sing, spotify, ytb, lyrics, shazam, tikinfo ready
-```
-
-| Command | Action |
-|---|---|
-| `song`, `sing` | Deliver tracks by query |
-| `spotify`, `ytb` | Spotify and YouTube retrieval |
-| `lyrics`, `lyricsvideo` | Lyric lookup and lyric videos |
-| `shazam` | Identify audio |
-| `tikinfo`, `ttsearch` | TikTok data and search |
-| `pinterest`, `googleimagesearch` | Image sources |
-| `anime`, `anisearch`, `waifu` | Anime and character content |
-| `gif`, `emojigif`, `autosticker` | GIF and sticker tools |
-| `v2a`, `video` | Media conversion |
-| `meme`, `memevid` | Entertainment output |
-
-### 💰 Economy
-
-```console
-root@shadowx:~$ ./shadowx-bot --economy-list
-[ OK ] loading economy commands...
-[ OK ] balance, bank, daily, bet, slot, spin, wheel, dice ready
-```
-
-| Command | Action |
-|---|---|
-| `balance` | Check the wallet |
-| `bank` | Deposit and withdraw |
-| `daily` | Claim rewards |
-| `bet`, `slot`, `spin`, `wheel`, `dice` | Wager games |
-| `give`, `trade` | Send or trade currency |
-| `top` | Leaderboard |
-| `hunt` | Currency mini-game |
-| `rank`, `topexp` | Activity ranking |
-| `customrankcard` | Personal rank card |
-
-### 🎮 Games
-
-```console
-root@shadowx:~$ ./shadowx-bot --games-list
-[ OK ] loading game commands...
-[ OK ] quiz, flaggame, mathgame, guessnumber, ttt, maze ready
-```
-
-Quiz systems cover general, Islamic, and Free Fire topics. Guessing games include flags, math, and numbers. Also available: Tic Tac Toe, maze runs, Truth or Dare, plus the casino set.
-
-### 💞 Fun and social
-
-```console
-root@shadowx:~$ ./shadowx-bot --social-list
-[ OK ] loading social commands...
-[ OK ] pair, married, propose, kiss, hug, slap, punch ready
-```
-
-Relationships run through pair, married, and propose. Interaction commands include kiss, hug, slap, punch, and sanda. Roleplay covers kidnap, arrest, jail, and kill. Image fun includes wanted and meme. Chat tools include fakechat, say, and say2.
-
-### 👥 Groups
-
-```console
-root@shadowx:~$ ./shadowx-bot --groups-list
-[ OK ] loading group commands...
-[ OK ] kick, adduser, gcadmin, admin, setnickallthread ready
-```
-
-Administration offers kick, kickall, kicked, adduser, gcadmin, admin, and setnickallthread. Moderation uses warn, ban, and filteruser. Protection uses antiout and antichangeinfobox. Greetings use welcome, leave, setwelcome, and setleave. Controls include whitelistthread, listbox, threadinfo, and boxinfo.
-
-### 👑 Owner and system
-
-```console
-root@shadowx:~$ ./shadowx-bot --owner-list
-[ OK ] loading owner commands...
-[ OK ] restart, offbot, busy, account, premium ready
-```
-
-`restart` reboots the process. `offbot` and `busy` change availability. `account` switches identities. `premium` handles membership. `admin` and `developer` manage staff. `prefix`, `noprefix`, and `setlang` adjust behavior. `set`, `loadconfig`, `load`, and `update` apply changes live. `backupdata` and `jsontomongodb` move data. `eval`, `shell`, and `cmd` inspect state. `stats`, `monitor`, `uptime`, `uptime2`, and `ping` report health. `clearcache` frees space.
-
-### 🔧 Tools
-
-```console
-root@shadowx:~$ ./shadowx-bot --tools-list
-[ OK ] loading utility commands...
-[ OK ] font, translate, weather, age, github ready
-```
-
-Text and link helpers: `font`, `translate`, `tinyurl`. Lookups: `weather`, `age`, `github`. Image tools: `lens`, `pfp`. Service helpers: tempmail, sms bomber, `npm`. Reporting: `uid`, `tid`, `usage`. Shortcuts: `shortcut`, `setalias`. Inspection: `json`, `raw`, `file`.
-
-### 🕌 Islamic and 🔊 TTS
-
-```console
-root@shadowx:~$ ./shadowx-bot --misc-list
-[ OK ] loading special commands...
-[ OK ] namaz, ramadan, islamicquiz, tts ready
-```
-
-`namaz` gives prayer times, `ramadan` adds seasonal helpers, and `islamicquiz` tests knowledge. `tts` turns text into speech.
+The command library spans AI and image generation, anime and media, economy, games, fun and social, group administration, owner and system tools, utilities, and Islamic features — all gated by the permission tiers below. Explore them in chat with `.help`.
 
 ### 🧠 Other systems
 
@@ -254,7 +134,7 @@ root@shadowx:~$ ./shadowx-bot --topology
 
 ```mermaid
 graph TD
-    A["Messenger User"] --> B["fca-nx Listener"]
+    A["Messenger User"] --> B["shadowx-fca Listener"]
     B --> C["Event Router"]
     C --> D["Command Engine"]
     C --> E["Event Handlers"]
@@ -270,7 +150,7 @@ graph TD
 ```console
 root@shadowx:~$ ./shadowx-bot --describe-arch
 [ OK ] component   : Messenger User
-[ OK ] component   : fca-nx Listener
+[ OK ] component   : shadowx-fca Listener
 [ OK ] component   : Event Router
 [ OK ] component   : Command Engine
 [ OK ] component   : Event Handlers
@@ -365,8 +245,8 @@ Credentials load from `account.txt`, `account2.txt`, and `account3.txt`. The bot
 ## 📥 Install
 
 ```console
-git clone https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED.git
-cd GOAT-BOT-UPDATED
+git clone https://github.com/mueidmursalinrifat/shadowx-bot.git
+cd shadowx-bot
 npm install
 ```
 
@@ -471,7 +351,7 @@ root@shadowx:~$ ./shadowx-bot --connect
 ```
 🌐 Portfolio: https://mueidmursalinrifat.onrender.com
 📘 Facebook: https://www.facebook.com/mueid.mursalin.rifat1
-📦 GitHub: https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED
+📦 GitHub: https://github.com/mueidmursalinrifat/shadowx-bot
 ```
 
 Star, fork, report bugs, suggest features, or send improvements.
@@ -487,7 +367,7 @@ root@shadowx:~$ ./shadowx-bot --version
   🛠️ modified by MUEID MURSALIN RIFAT
   🟢 runtime  Node.js 22.x
   🐘 database Neon PostgreSQL
-  ⚡ engine   fca-nx
+  ⚡ engine   shadowx-fca
   📜 license  MIT
 ```
 
@@ -495,7 +375,7 @@ root@shadowx:~$ ./shadowx-bot --version
 |----|:---:|---|
 | 🌐 Web portfolio | [mueidmursalinrifat.onrender.com](https://mueidmursalinrifat.onrender.com) |
 | 📘 Facebook | [mueid.mursalin.rifat1](https://www.facebook.com/mueid.mursalin.rifat1) |
-| 📦 GitHub | [GOAT-BOT-UPDATED](https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED) |
+| 📦 GitHub | [shadowx-bot](https://github.com/mueidmursalinrifat/shadowx-bot) |
 
 <div align="center">
 
@@ -505,7 +385,7 @@ root@shadowx:~$ ./shadowx-bot --version
 
 <a href="https://mueidmursalinrifat.onrender.com"><img src="https://img.shields.io/badge/PORTFOLIO-00D9FF?style=for-the-badge&logo=render&logoColor=white" alt="Portfolio"></a>
 <a href="https://www.facebook.com/mueid.mursalin.rifat1"><img src="https://img.shields.io/badge/FACEBOOK-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook"></a>
-<a href="https://github.com/mueidmursalinrifat/GOAT-BOT-UPDATED"><img src="https://img.shields.io/badge/GITHUB-7000FF?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+<a href="https://github.com/mueidmursalinrifat/shadowx-bot"><img src="https://img.shields.io/badge/GITHUB-7000FF?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:7000FF,100:0D001A&height=140&section=footer" width="100%">
 
