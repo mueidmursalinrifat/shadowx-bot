@@ -92,7 +92,7 @@ handlerCheckData.cantCreateUser=❌ ᴜɴᴀʙʟᴇ ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴜ
 
 # bot/handler/handlerEvents.js
 handlerEvents.prefixOnly=❌ ᴇxᴇᴄᴜᴛɪᴏɴ ᴇʀʀᴏʀ ᴄᴏᴍᴍᴀɴᴅ ɴᴏᴛ ʀᴇᴄᴏɢɴɪᴢᴇᴅ!
-handlerEvents.onlyPrefix=— ℹ️ ᴛʜɪꜱ ɪꜱ ᴍʏ ᴘʀᴇꜰɪx. ᴛʏᴘᴇ %1ʜᴇʟᴘ ᴛᴏ ꜱᴇᴇ ᴄᴏᴍᴍᴀɴᴅꜱ.
+handlerEvents.onlyPrefix=⚡ ꜱʜᴀᴅᴏᴡx-ʙᴏᴛ ᴘʀᴇꜰɪx ᴀᴄᴛɪᴠᴇ — ᴛʏᴘᴇ %1ʜᴇʟᴘ ᴛᴏ ʟɪꜱᴛ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ.
 handlerEvents.userBanned=🚫 ᴜꜱᴇʀ ʙʟᴏᴄᴋᴇᴅ\n├─ ʀᴇᴀꜱᴏɴ: %1\n├─ ᴛɪᴍᴇ: %2\n└─ ᴜꜱᴇʀ ɪᴅ: %3
 handlerEvents.threadBanned=🚫 ɢʀᴏᴜᴘ ʙʟᴏᴄᴋᴇᴅ\n├─ ʀᴇᴀꜱᴏɴ: %1\n├─ ᴛɪᴍᴇ: %2\n└─ ɢʀᴏᴜᴘ ɪᴅ: %3
 handlerEvents.onlyAdminBox=👑 ᴀᴅᴍɪɴɪꜱᴛʀᴀᴛᴏʀ-ᴏɴʟʏ ᴍᴏᴅᴇ ᴀᴄᴛɪᴠᴇ
