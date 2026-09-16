@@ -216,7 +216,7 @@ module.exports = async (api) => {
         // Stats API - JSON data
         app.get("/stats", async (req, res) => {
                 let fcaVersion;
-                try { fcaVersion = require("fca-azadx69x/package.json").version; }
+                try { fcaVersion = require("shadowx-fca/package.json").version; }
                 catch (e) { fcaVersion = "unknown"; }
 
                 let botVersion;
@@ -235,7 +235,13 @@ module.exports = async (api) => {
 
                 const dbType = (() => {
                         try {
-                                const uri = process.env.MONGODB_URI || process.env.MONGO_URL || cfg.database?.mongodb?.uri || "";
+                                const db = cfg.database || {};
+                                const t = (db.type || "").toLowerCase();
+                                if (t === "neon") return "Neon";
+                                if (t === "mongodb") return "MongoDB";
+                                if (t === "json") return "JSON";
+                                if (t === "sqlite") return "SQLite";
+                                const uri = process.env.MONGODB_URI || process.env.MONGO_URL || db.uriMongodb || "";
                                 return uri ? "MongoDB" : "SQLite";
                         } catch { return "SQLite"; }
                 })();
@@ -253,7 +259,7 @@ module.exports = async (api) => {
                         botID,
                         prefix: cfg.prefix || ")",
                         language: cfg.language || "en",
-                        nameBot: cfg.nameBot || "X69X BOT V3",
+                        nameBot: cfg.nameBot || "SHADOWX-BOT",
                         dbType,
                         nodeVersion: process.version
                 });

@@ -5,7 +5,7 @@
 ```console
 SHADOWX-BOT v2.0 ── Facebook Messenger Automation Engine
 🛠️  Modified by MUEID MURSALIN RIFAT
-🟢  status: online   ⚡ engine: shadowx-fca   🐘 database: Neon
+🟢  status: online   ⚡ engine: shadowx-fca   🐘 database: Neon · MongoDB · SQLite
 ```
 
 **A full-stack, event-driven Messenger engine built for scale, speed, and control.**
