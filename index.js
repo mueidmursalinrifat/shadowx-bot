@@ -66,7 +66,7 @@ function resolveDbType() {
 app.get(["/health", "/ping", "/alive"], (req, res) => {
 	res.status(200).json({
 		status: "ok",
-		bot: config.nickNameBot || "SHADOWX-BOT",
+		bot: "SHADOWX-BOT",
 		uptime: Math.floor(process.uptime()),
 		timestamp: new Date().toISOString()
 	});
@@ -88,7 +88,7 @@ app.get("/stats", (req, res) => {
 		botID: null,
 		prefix: config.prefix || ".",
 		language: config.language || "en",
-		nameBot: config.nickNameBot || "SHADOWX-BOT",
+		nameBot: "SHADOWX-BOT",
 		dbType: resolveDbType(),
 		nodeVersion: process.version
 	});

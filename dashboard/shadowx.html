@@ -109,6 +109,8 @@ nav{
   border:1px solid var(--border);
   box-shadow:0 0 40px rgba(139,92,246,.25),inset 0 0 30px rgba(139,92,246,.08);
   margin-bottom:22px;position:relative}
+.hero-avatar img{width:60px;height:60px;object-fit:contain;border-radius:10px;
+  filter:drop-shadow(0 0 10px rgba(139,92,246,.55))}
 .avatar-status{
   position:absolute;bottom:6px;right:6px;
   width:14px;height:14px;border-radius:50%;
@@ -190,21 +192,6 @@ nav{
 .sb-key{color:var(--muted);font-weight:600;font-size:10px;white-space:nowrap;text-transform:uppercase;letter-spacing:.08em}
 .sb-val{font-weight:700;font-size:12px;color:var(--c)}
 
-/* ─── INFO PILLS ─── */
-.info-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-  gap:10px;margin-bottom:30px}
-.info-pill{
-  background:var(--panel);
-  border:1px solid var(--line);border-radius:8px;
-  padding:12px 14px;display:flex;align-items:center;gap:9px;
-  transition:all .3s}
-.info-pill:hover{border-color:rgba(139,92,246,.35);transform:translateX(3px)}
-.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--g);
-  box-shadow:0 0 7px var(--g);flex-shrink:0;animation:dotPulse 2.5s infinite}
-.pill-key{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:2px}
-.pill-val{font-size:12px;font-weight:700;color:var(--c)}
-
 /* ─── FEATURES ─── */
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:30px}
 .feat-card{
@@ -271,7 +258,7 @@ html.js .rv.in{opacity:1;transform:translateY(0)}
   <!-- HERO -->
   <section class="hero rv">
     <div class="hero-avatar">
-      ⚡
+      <img src="/images/logo-non-bg.png" alt="SHADOWX-BOT logo"/>
       <div class="avatar-status" id="avatarStatus"></div>
     </div>
     <h1 id="heroTitle">SHADOWX-BOT</h1>
@@ -337,34 +324,6 @@ html.js .rv.in{opacity:1;transform:translateY(0)}
     <div class="sb-item"><span class="sb-key">Engine</span><span class="sb-val" id="iFCA"><span class="sk"></span></span></div>
     <div class="sb-item"><span class="sb-key">Events</span><span class="sb-val" id="iEvt"><span class="sk" style="min-width:18px"></span></span></div>
     <div class="sb-item"><span class="sb-key">Status</span><span class="sb-val" id="iStatus"><span class="sk"></span></span></div>
-  </div>
-
-  <!-- INFO PILLS -->
-  <div class="info-grid rv">
-    <div class="info-pill">
-      <div class="pill-dot"></div>
-      <div><span class="pill-key">Prefix</span><span class="pill-val" id="pPrefix">—</span></div>
-    </div>
-    <div class="info-pill">
-      <div class="pill-dot" style="background:var(--c);box-shadow:0 0 7px var(--c)"></div>
-      <div><span class="pill-key">Bot Version</span><span class="pill-val" id="pVer">—</span></div>
-    </div>
-    <div class="info-pill">
-      <div class="pill-dot" style="background:var(--gold);box-shadow:0 0 7px var(--gold)"></div>
-      <div><span class="pill-key">Node.js</span><span class="pill-val" id="pNode">—</span></div>
-    </div>
-    <div class="info-pill">
-      <div class="pill-dot" style="background:var(--p);box-shadow:0 0 7px var(--p)"></div>
-      <div><span class="pill-key">Database</span><span class="pill-val" id="pDB">—</span></div>
-    </div>
-    <div class="info-pill">
-      <div class="pill-dot" style="background:var(--p2);box-shadow:0 0 7px var(--p2)"></div>
-      <div><span class="pill-key">Language</span><span class="pill-val" id="pLang">—</span></div>
-    </div>
-    <div class="info-pill">
-      <div class="pill-dot" style="background:var(--c);box-shadow:0 0 7px var(--c)"></div>
-      <div><span class="pill-key">Engine</span><span class="pill-val" id="pFCA">—</span></div>
-    </div>
   </div>
 
   <!-- FEATURES -->
@@ -481,14 +440,6 @@ async function loadStats(){
     document.getElementById('iLang').textContent   = (d.language||'en').toUpperCase();
     document.getElementById('iFCA').textContent    = (d.fcaName||'shadowx-fca')+' v'+(d.fcaVersion||'?');
     document.getElementById('iEvt').textContent    = d.eventsCount||0;
-
-    /* Info pills */
-    document.getElementById('pPrefix').textContent = d.prefix||'.';
-    document.getElementById('pVer').textContent    = 'v'+(d.botVersion||'?');
-    document.getElementById('pNode').textContent   = d.nodeVersion||'Node.js';
-    document.getElementById('pDB').textContent     = d.dbType||'SQLite';
-    document.getElementById('pLang').textContent   = (d.language||'en').toUpperCase();
-    document.getElementById('pFCA').textContent    = (d.fcaName||'shadowx-fca')+' v'+(d.fcaVersion||'?');
 
     /* Hero title from real bot name */
     if(d.nameBot){
