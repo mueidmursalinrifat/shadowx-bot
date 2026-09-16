@@ -2596,6 +2596,31 @@ async function startBot(
 
         /*
          * -------------------------------------------------
+         * LIVE STATS REPORTER (IPC → launcher /stats)
+         * -------------------------------------------------
+         */
+        if (typeof process.send === "function") {
+          const reportStats = async () => {
+            try {
+              const [allThreads, allUsers] = await Promise.all([
+                threadsData.getAll(),
+                usersData.getAll()
+              ]);
+              process.send({
+                type: "shadowx:stats",
+                totalThread: (allThreads || []).filter(
+                  t => t.threadID && t.threadID.toString().length > 15
+                ).length,
+                totalUser: (allUsers || []).length
+              });
+            } catch (e) { }
+          };
+          setInterval(reportStats, 45000);
+          reportStats();
+        }
+
+        /*
+         * -------------------------------------------------
          * CUSTOM
          * -------------------------------------------------
          */

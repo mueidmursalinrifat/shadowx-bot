@@ -6,6 +6,7 @@
 <title>SHADOWX-BOT</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<script>document.documentElement.classList.add('js')</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -204,44 +205,6 @@ nav{
 .pill-key{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:2px}
 .pill-val{font-size:12px;font-weight:700;color:var(--c)}
 
-/* ─── SESSION CARD ─── */
-.session-card{
-  background:var(--panel);
-  border:1px solid rgba(139,92,246,.28);border-radius:12px;
-  overflow:hidden;margin-bottom:30px;
-  box-shadow:0 0 50px rgba(139,92,246,.06)}
-.sc-head{
-  padding:16px 22px;
-  background:linear-gradient(135deg,rgba(139,92,246,.1),transparent);
-  border-bottom:1px solid rgba(255,255,255,.04);
-  display:flex;align-items:center;gap:12px}
-.sc-head-icon{font-size:22px;filter:drop-shadow(0 0 8px rgba(139,92,246,.6))}
-.sc-title{font-size:14px;font-weight:700}
-.sc-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.sc-body{padding:18px 22px;display:flex;flex-direction:column;gap:14px}
-.field-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:5px;display:block}
-.field-inp{
-  width:100%;background:rgba(0,0,0,.5);
-  border:1px solid rgba(255,255,255,.07);border-radius:8px;
-  padding:11px 14px;color:var(--txt);
-  font-family:'JetBrains Mono',monospace;font-size:12px;
-  outline:none;transition:all .25s}
-.field-inp:focus{border-color:rgba(139,92,246,.6);box-shadow:0 0 0 3px rgba(139,92,246,.1)}
-textarea.field-inp{min-height:120px;resize:vertical;line-height:1.6}
-.sc-msg{padding:10px 14px;border-radius:8px;font-size:12px;font-weight:600;display:none}
-.sc-msg.ok{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:#6ee7b7}
-.sc-msg.err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:#fca5a5}
-.sc-btn{
-  background:rgba(139,92,246,.18);color:var(--p2);
-  border:1px solid rgba(139,92,246,.45);border-radius:8px;
-  padding:12px;font-size:13px;font-weight:700;
-  font-family:'JetBrains Mono',monospace;letter-spacing:.05em;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;
-  transition:all .25s}
-.sc-btn:hover{background:rgba(139,92,246,.3);color:#fff;box-shadow:0 0 24px rgba(139,92,246,.35)}
-.sc-btn:disabled{opacity:.5;cursor:not-allowed}
-
 /* ─── FEATURES ─── */
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:30px}
 .feat-card{
@@ -269,9 +232,9 @@ footer a:hover{color:var(--c)}
 @keyframes sk{0%{background-position:200%}100%{background-position:-200%}}
 
 /* ─── REVEAL ─── */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:translateY(0)}
-
+html.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+html.js .rv.in{opacity:1;transform:translateY(0)}
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   nav{padding:9px 14px;margin-bottom:24px;top:10px}
@@ -314,7 +277,7 @@ footer a:hover{color:var(--c)}
     <h1 id="heroTitle">SHADOWX-BOT</h1>
     <p class="hero-sub">Facebook Messenger automation engine · Signal Protocol E2EE · Auto-healing core · Forged by <strong style="color:var(--p2)">Mueid Mursalin Rifat</strong></p>
     <div class="hero-actions">
-      <a href="/dashboard" class="btn btn-primary">▶ Dashboard Portal</a>
+      <a href="https://mueidmursalinrifat.onrender.com" target="_blank" class="btn btn-primary">🌐 Portfolio</a>
       <a href="https://github.com/mueidmursalinrifat/shadowx-bot" target="_blank" class="btn btn-ghost">⌨ Source Code</a>
     </div>
   </section>
@@ -335,32 +298,6 @@ footer a:hover{color:var(--c)}
         <div><span style="color:var(--g)">[ OK ]</span> command registry mounted</div>
         <div><span style="color:var(--gold)">[ READY ]</span> use .help in chat to explore<span class="cursor"></span></div>
       </div>
-    </div>
-  </div>
-
-  <!-- SESSION -->
-  <div class="sec-label rv">Facebook Session</div>
-  <div class="session-card rv">
-    <div class="sc-head">
-      <div class="sc-head-icon">🔐</div>
-      <div>
-        <div class="sc-title">Set Facebook Session</div>
-        <div class="sc-sub">Paste your fbstate / cookies JSON to connect the bot to Messenger</div>
-      </div>
-    </div>
-    <div class="sc-body">
-      <div>
-        <label class="field-label">Admin Key <span style="color:rgba(100,116,139,.6)">(config.json → dashBoard.adminKey)</span></label>
-        <input type="password" id="keyInp" class="field-inp" placeholder="Enter your admin key" autocomplete="off"/>
-      </div>
-      <div>
-        <label class="field-label">Facebook Session JSON</label>
-        <textarea id="stateInp" class="field-inp" placeholder='[{"key":"c_user","value":"123..."},{"key":"xs","value":"abc..."}]'></textarea>
-      </div>
-      <div id="scMsg" class="sc-msg"></div>
-      <button id="scBtn" class="sc-btn" onclick="sendSession()">
-        <span id="scIco">💾</span><span id="scLbl">Save Session &amp; Restart Bot</span>
-      </button>
     </div>
   </div>
 
@@ -397,7 +334,7 @@ footer a:hover{color:var(--c)}
     <div class="sb-item"><span class="sb-key">Runtime</span><span class="sb-val" id="iNode"><span class="sk"></span></span></div>
     <div class="sb-item"><span class="sb-key">Database</span><span class="sb-val" id="iDB"><span class="sk"></span></span></div>
     <div class="sb-item"><span class="sb-key">Language</span><span class="sb-val" id="iLang"><span class="sk" style="min-width:22px"></span></span></div>
-    <div class="sb-item"><span class="sb-key">FCA</span><span class="sb-val" id="iFCA"><span class="sk"></span></span></div>
+    <div class="sb-item"><span class="sb-key">Engine</span><span class="sb-val" id="iFCA"><span class="sk"></span></span></div>
     <div class="sb-item"><span class="sb-key">Events</span><span class="sb-val" id="iEvt"><span class="sk" style="min-width:18px"></span></span></div>
     <div class="sb-item"><span class="sb-key">Status</span><span class="sb-val" id="iStatus"><span class="sk"></span></span></div>
   </div>
@@ -426,7 +363,7 @@ footer a:hover{color:var(--c)}
     </div>
     <div class="info-pill">
       <div class="pill-dot" style="background:var(--c);box-shadow:0 0 7px var(--c)"></div>
-      <div><span class="pill-key">FCA Version</span><span class="pill-val" id="pFCA">—</span></div>
+      <div><span class="pill-key">Engine</span><span class="pill-val" id="pFCA">—</span></div>
     </div>
   </div>
 
@@ -434,34 +371,34 @@ footer a:hover{color:var(--c)}
   <div class="sec-label rv">Features</div>
   <div class="feat-grid">
     <div class="feat-card rv">
-      <span class="feat-emo">🧠</span>
-      <h3>AI &amp; GPT Suite</h3>
-      <p>ChatGPT, Midjourney, image generation, translation — pure intelligence in any Messenger chat.</p>
+      <span class="feat-emo">⚡</span>
+      <h3>shadowx-fca Engine</h3>
+      <p>Custom listener with Signal Protocol E2EE, Noise WebSocket, and automatic appstate backup.</p>
     </div>
     <div class="feat-card rv">
       <span class="feat-emo">🛡️</span>
-      <h3>Permission Tiers</h3>
-      <p>Developer, premium, bot admin, group admin, member — complete granular role control.</p>
-    </div>
-    <div class="feat-card rv">
-      <span class="feat-emo">🎨</span>
-      <h3>Canvas Welcome Cards</h3>
-      <p>Canvas-rendered welcome &amp; leave images sent automatically when members join.</p>
-    </div>
-    <div class="feat-card rv">
-      <span class="feat-emo">📥</span>
-      <h3>Media Downloader</h3>
-      <p>TikTok, YouTube, Facebook, Instagram — download and deliver media directly to any chat.</p>
-    </div>
-    <div class="feat-card rv">
-      <span class="feat-emo">♻️</span>
       <h3>Auto-Heal Core</h3>
-      <p>MQTT watchdog, auto-reconnect, fallback account switch. Bot stays online, always.</p>
+      <p>Auto reconnect, MQTT supervision, and fallback account switch keep the process alive.</p>
     </div>
     <div class="feat-card rv">
-      <span class="feat-emo">🌐</span>
-      <h3>SHADOWX-FCA Engine</h3>
-      <p>Rebranded fca engine: stable MQTT listener, Signal E2EE, full message parsing.</p>
+      <span class="feat-emo">🐘</span>
+      <h3>Multi-Database</h3>
+      <p>Neon PostgreSQL by default, with MongoDB, SQLite, and JSON available as drop-in backends.</p>
+    </div>
+    <div class="feat-card rv">
+      <span class="feat-emo">🎛️</span>
+      <h3>Permission Tiers</h3>
+      <p>Five roles from member to developer, whitelist mode, and per-thread settings.</p>
+    </div>
+    <div class="feat-card rv">
+      <span class="feat-emo">🧩</span>
+      <h3>Live Script Reload</h3>
+      <p>Modular command and event layers that hot-reload without restarting the bot.</p>
+    </div>
+    <div class="feat-card rv">
+      <span class="feat-emo">📈</span>
+      <h3>Uptime &amp; Alerts</h3>
+      <p>Scheduled restarts, self-ping keep-alive, and failure alerts via Gmail, Telegram, or Discord.</p>
     </div>
   </div>
 
@@ -479,10 +416,16 @@ footer a:hover{color:var(--c)}
 
 <script>
 /* ── REVEAL ON SCROLL ── */
-const rv = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') });
-},{threshold:.07,rootMargin:'0px 0px -30px 0px});
-document.querySelectorAll('.rv').forEach(el => rv.observe(el));
+const rvEls = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window) {
+  const rv = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } });
+  },{threshold:.07,rootMargin:'0px 0px -30px 0px'});
+  rvEls.forEach(el => rv.observe(el));
+} else {
+  rvEls.forEach(el => el.classList.add('in'));
+}
+setTimeout(() => rvEls.forEach(el => el.classList.add('in')), 1500);
 
 /* ── UPTIME FORMAT ── */
 function fmtUp(s){
@@ -536,7 +479,7 @@ async function loadStats(){
     document.getElementById('iNode').textContent   = d.nodeVersion||'Node.js';
     document.getElementById('iDB').textContent     = d.dbType||'SQLite';
     document.getElementById('iLang').textContent   = (d.language||'en').toUpperCase();
-    document.getElementById('iFCA').textContent    = 'v'+(d.fcaVersion||'?');
+    document.getElementById('iFCA').textContent    = (d.fcaName||'shadowx-fca')+' v'+(d.fcaVersion||'?');
     document.getElementById('iEvt').textContent    = d.eventsCount||0;
 
     /* Info pills */
@@ -545,7 +488,7 @@ async function loadStats(){
     document.getElementById('pNode').textContent   = d.nodeVersion||'Node.js';
     document.getElementById('pDB').textContent     = d.dbType||'SQLite';
     document.getElementById('pLang').textContent   = (d.language||'en').toUpperCase();
-    document.getElementById('pFCA').textContent    = 'v'+(d.fcaVersion||'?');
+    document.getElementById('pFCA').textContent    = (d.fcaName||'shadowx-fca')+' v'+(d.fcaVersion||'?');
 
     /* Hero title from real bot name */
     if(d.nameBot){
@@ -566,49 +509,6 @@ async function loadStats(){
 loadStats();
 setInterval(loadStats,30000);
 
-/* ── SESSION SUBMIT ── */
-async function sendSession(){
-  const key=document.getElementById('keyInp').value.trim();
-  const state=document.getElementById('stateInp').value.trim();
-  const msg=document.getElementById('scMsg');
-  const btn=document.getElementById('scBtn');
-  const ico=document.getElementById('scIco');
-  const lbl=document.getElementById('scLbl');
-
-  if(!key){ showMsg('err','⚠️ Admin key required'); return }
-  if(!state){ showMsg('err','⚠️ Facebook session JSON required'); return }
-  try{ JSON.parse(state) }
-  catch(e){ showMsg('err','⚠️ Invalid JSON — must be a valid fbstate array'); return }
-
-  btn.disabled=true; ico.textContent='⏳'; lbl.textContent='Saving...';
-  msg.style.display='none';
-
-  try{
-    const res=await fetch('/api/setup-session',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({fbstate:state,adminKey:key})
-    });
-    const data=await res.json();
-    if(data.status==='success'){
-      showMsg('ok','✅ '+data.message);
-      ico.textContent='✅'; lbl.textContent='Saved! Restarting bot...';
-      setTimeout(()=>location.reload(),4000);
-    } else {
-      showMsg('err','❌ '+data.message);
-      btn.disabled=false; ico.textContent='💾'; lbl.textContent='Save Session & Restart Bot';
-    }
-  } catch(e){
-    showMsg('err','❌ Network error: '+e.message);
-    btn.disabled=false; ico.textContent='💾'; lbl.textContent='Save Session & Restart Bot';
-  }
-}
-
-function showMsg(t,txt){
-  const m=document.getElementById('scMsg');
-  m.className='sc-msg '+(t==='ok'?'ok':'err');
-  m.textContent=txt; m.style.display='block';
-}
 </script>
 </body>
 </html>

@@ -16,10 +16,9 @@ const configCommands = require("./configCommands.json");
 
 const PORT = process.env.PORT || 4000;
 const dirDashboard = path.join(__dirname, "dashboard");
-const dirAccount = path.join(__dirname, "account.txt");
 
 let botProcess = null;
-let restartRequested = false;
+let botStats = { totalThread: 0, totalUser: 0 };
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -39,12 +38,12 @@ function countScripts(dir, unloadList) {
 	).length;
 }
 
-function readVersion(p) {
+function readPackage(p) {
 	try {
-		return require(p).version || "unknown";
+		return require(p);
 	}
 	catch (e) {
-		return "unknown";
+		return { name: "unknown", version: "unknown" };
 	}
 }
 
@@ -67,19 +66,21 @@ function resolveDbType() {
 app.get(["/health", "/ping", "/alive"], (req, res) => {
 	res.status(200).json({
 		status: "ok",
-		bot: config.nameBot || "SHADOWX-BOT",
+		bot: config.nickNameBot || "SHADOWX-BOT",
 		uptime: Math.floor(process.uptime()),
 		timestamp: new Date().toISOString()
 	});
 });
 
-// Stats API - JSON data
+// Public stats API - live data reported by the bot process over IPC
 app.get("/stats", (req, res) => {
+	const fcaPkg = readPackage(path.join(__dirname, "node_modules", "shadowx-fca", "package.json"));
 	res.json({
-		fcaVersion: readVersion(path.join(__dirname, "node_modules", "shadowx-fca", "package.json")),
-		botVersion: readVersion(path.join(__dirname, "package.json")),
-		totalThread: 0,
-		totalUser: 0,
+		fcaName: fcaPkg.name || "shadowx-fca",
+		fcaVersion: fcaPkg.version || "unknown",
+		botVersion: readPackage(path.join(__dirname, "package.json")).version || "unknown",
+		totalThread: botStats.totalThread,
+		totalUser: botStats.totalUser,
 		uptimeSecond: process.uptime(),
 		commandsCount: countScripts(path.join(__dirname, "scripts", "cmds"), configCommands.commandUnload),
 		eventsCount: countScripts(path.join(__dirname, "scripts", "events"), configCommands.commandEventUnload),
@@ -87,41 +88,13 @@ app.get("/stats", (req, res) => {
 		botID: null,
 		prefix: config.prefix || ".",
 		language: config.language || "en",
-		nameBot: config.nameBot || "SHADOWX-BOT",
+		nameBot: config.nickNameBot || "SHADOWX-BOT",
 		dbType: resolveDbType(),
 		nodeVersion: process.version
 	});
 });
 
-// Public setup-session endpoint — protected by adminKey from config
-app.post("/api/setup-session", (req, res) => {
-	const { fbstate, adminKey } = req.body || {};
-	const configKey = config.dashBoard?.adminKey;
-
-	if (!adminKey || adminKey !== configKey)
-		return res.json({ status: "error", message: "Wrong admin key. Check config.json → dashBoard.adminKey" });
-
-	if (!fbstate || !fbstate.trim())
-		return res.json({ status: "error", message: "fbstate cannot be empty" });
-
-	try {
-		fs.writeFileSync(dirAccount, fbstate.trim());
-		res.json({ status: "success", message: "Session saved! Bot is restarting now..." });
-		res.on("finish", () => setTimeout(() => {
-			if (botProcess) {
-				restartRequested = true;
-				botProcess.kill("SIGTERM");
-			}
-			else
-				startProject();
-		}, 500));
-	}
-	catch (err) {
-		res.json({ status: "error", message: "Failed to write session: " + err.message });
-	}
-});
-
-// Home route - serve SHADOWX dashboard
+// Home route - serve SHADOWX public dashboard
 app.get(["/", "/home", "/dashboard"], (req, res) => {
 	res.sendFile(path.join(dirDashboard, "shadowx.html"));
 });
@@ -134,16 +107,23 @@ app.listen(PORT, () => {
 function startProject() {
 	const child = spawn("node", ["Goat.js"], {
 		cwd: __dirname,
-		stdio: "inherit",
-		shell: true
+		stdio: ["inherit", "inherit", "inherit", "ipc"]
 	});
 
 	botProcess = child;
 
+	child.on("message", (msg) => {
+		if (msg && msg.type === "shadowx:stats") {
+			botStats = {
+				totalThread: msg.totalThread || 0,
+				totalUser: msg.totalUser || 0
+			};
+		}
+	});
+
 	child.on("close", (code) => {
 		botProcess = null;
-		if (code == 2 || restartRequested) {
-			restartRequested = false;
+		if (code == 2) {
 			log.info("Restarting Project...");
 			startProject();
 		}
