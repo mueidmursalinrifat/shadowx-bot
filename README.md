@@ -93,7 +93,7 @@ root@shadowx:~$ ./shadowx-bot --highlights
 - 🎨 Rebuilt identity, banner, and documentation
 - 🐘 Neon PostgreSQL by default, with SQLite, JSON, and MongoDB available
 - ⚡ `shadowx-fca` login with E2EE bootstrap and appstate backup
-- 🚀 226 commands across nine categories
+- 🚀 **226 commands** across nine categories — explore them all with `.help` in chat 💬
 - 💎 Premium membership with expiry tracking
 - 🖥️ Dashboard with verification codes and account controls
 - 🔧 Self-healing native modules for `canvas`, `sqlite3`, and `bcrypt`
