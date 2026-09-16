@@ -1,0 +1,14 @@
+node_modules/
+shadowx-fca/
+scripts/cmds/shadowx-fca/
+scripts/cmds/shadowx-ai.js
+.fca-nx/
+.shadowx-fca/
+Fca_Database/
+logs/
+active_account.json
+database/data/
+*.sqlite
+scripts/cmds/cache/
+scripts/events/cache/
+.bot_uptime.lock

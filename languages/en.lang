@@ -1,0 +1,166 @@
+# index.js
+Goat.newVersionDetected=✨ ᴜᴘᴅᴀᴛᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ✨\n├─ ᴄᴜʀʀᴇɴᴛ ᴠᴇʀꜱɪᴏɴ: %1\n├─ ʟᴀᴛᴇꜱᴛ ᴠᴇʀꜱɪᴏɴ: %2\n└─ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴍᴍᴀɴᴅ: %3
+Goat.autoRestart1=🔄 ᴀᴜᴛᴏ-ʀᴇꜱᴛᴀʀᴛ ɪɴɪᴛɪᴀᴛᴇᴅ • ʀᴇꜱᴛᴀʀᴛɪɴɢ ɪɴ: %1
+Goat.autoRestart2=⏰ ᴄʀᴏɴ-ꜱᴄʜᴇᴅᴜʟᴇᴅ ʀᴇꜱᴛᴀʀᴛ • ɴᴇxᴛ ᴇxᴇᴄᴜᴛɪᴏɴ: %1
+Goat.googleApiTokenExpired=🔐 ɢᴏᴏɢʟᴇ ᴀᴘɪ ᴛᴏᴋᴇɴ ᴇxᴘɪʀᴇᴅ\nᴘʟᴇᴀꜱᴇ ʀᴇɴᴇᴡ ʏᴏᴜʀ ᴛᴏᴋᴇɴ ᴀᴛ:\nhttps://developers.google.com/oauthplayground/
+Goat.googleApiRefreshTokenExpired=🔐 ɢᴏᴏɢʟᴇ ᴀᴘɪ ʀᴇꜰʀᴇꜱʜ ᴛᴏᴋᴇɴ ᴇxᴘɪʀᴇᴅ\nʀᴇɴᴇᴡ ᴀᴛ: https://developers.google.com/oauthplayground/
+
+# bot/login/login.js
+login.currentlyLogged=🔐 ʟᴏɢɪɴ ᴘʀᴏᴄᴇꜱꜱ ɪɴɪᴛɪᴀᴛᴇᴅ
+login.notFoundDirAccount=📂 ᴜɴᴀʙʟᴇ ᴛᴏ ʟᴏᴄᴀᴛᴇ ꜰɪʟᴇ: %1
+login.loginToken=🔑 ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪɴɢ ᴠɪᴀ ᴀᴄᴄᴇꜱꜱ ᴛᴏᴋᴇɴ
+login.loginCookieString=🍪 ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪɴɢ ᴠɪᴀ ᴄᴏᴏᴋɪᴇ ꜱᴛʀɪɴɢ
+login.loginCookieNetscape=🌐 ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪɴɢ ᴠɪᴀ ɴᴇᴛꜱᴄᴀᴘᴇ ᴄᴏᴏᴋɪᴇ
+login.loginCookieArray=📋 ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪɴɢ ᴠɪᴀ ᴄᴏᴏᴋɪᴇ ᴀʀʀᴀʏ
+login.loginPassword=📧 ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪɴɢ ᴠɪᴀ ᴇᴍᴀɪʟ & ᴘᴀꜱꜱᴡᴏʀᴅ
+login.accountError=⚠️  ɪɴᴠᴀʟɪᴅ ᴀᴄᴄᴏᴜɴᴛ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ\n\nᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ꜰᴏʟʟᴏᴡɪɴɢ ꜰᴏʀᴍᴀᴛꜱ:\n\n🔑 ꜰᴜʟʟ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏᴋᴇɴ:\n%1\n\n🍪 ᴄᴏᴏᴋɪᴇ ꜱᴛʀɪɴɢ:\n%2\n\n📋 ᴄᴏᴏᴋɪᴇ ᴀʀʀᴀʏ:\n[\n  { ɴᴀᴍᴇ: %3, ᴠᴀʟᴜᴇ: %4 },\n  { ɴᴀᴍᴇ: %5, ᴠᴀʟᴜᴇ: %6 }\n]\nᴏʀ\n[\n  { ᴋᴇʏ: %3, ᴠᴀʟᴜᴇ: %4 },\n  { ᴋᴇʏ: %5, ᴠᴀʟᴜᴇ: %6 }\n]\n\n📍 ꜰɪʟᴇ ᴘᴀᴛʜ: %7
+login.cannotFindAccount=🔍 ꜰᴀᴄᴇʙᴏᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ɴᴏᴛ ꜰᴏᴜɴᴅ\nᴘʟᴇᴀꜱᴇ ꜱᴇʟᴇᴄᴛ ᴀɴ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴍᴇᴛʜᴏᴅ:\n(ᴜꜱᴇ ᴀʀʀᴏᴡ ᴋᴇʏꜱ ᴛᴏ ɴᴀᴠɪɢᴀᴛᴇ, ᴇɴᴛᴇʀ ᴛᴏ ꜱᴇʟᴇᴄᴛ)
+login.chooseAccount=📧 ᴇᴍᴀɪʟ & ᴘᴀꜱꜱᴡᴏʀᴅ
+login.chooseToken=🔑 ꜰᴜʟʟ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏᴋᴇɴ
+login.chooseCookieString=🍪 ᴄᴏᴏᴋɪᴇ ꜱᴛʀɪɴɢ
+login.chooseCookieArray=📋 ᴄᴏᴏᴋɪᴇ ᴀʀʀᴀʏ
+login.loginWith=✅ ꜱᴇʟᴇᴄᴛᴇᴅ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ: %1
+login.inputEmail=📧 ᴇɴᴛᴇʀ ʏᴏᴜʀ ꜰᴀᴄᴇʙᴏᴏᴋ ᴇᴍᴀɪʟ/ᴘʜᴏɴᴇ:
+login.inputPassword=🔒 ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴘᴀꜱꜱᴡᴏʀᴅ:
+login.input2FA=🔢 ᴇɴᴛᴇʀ 2-ꜰᴀ ᴄᴏᴅᴇ (ɪꜰ ᴇɴᴀʙʟᴇᴅ):
+login.inputToken=🔑 ᴇɴᴛᴇʀ ʏᴏᴜʀ ꜰᴜʟʟ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏᴋᴇɴ:
+login.inputCookieString=🍪 ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴄᴏᴏᴋɪᴇ ꜱᴛʀɪɴɢ:
+login.inputCookieArray=📋 ᴇɴᴛᴇʀ ʏᴏᴜʀ ᴄᴏᴏᴋɪᴇ ᴀʀʀᴀʏ:
+login.refreshCookie=🔄 ʀᴇꜰʀᴇꜱʜɪɴɢ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛᴏᴋᴇɴꜱ...
+login.refreshCookieError=❌ ꜰᴀɪʟᴇᴅ ᴛᴏ ʀᴇꜰʀᴇꜱʜ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛᴏᴋᴇɴꜱ
+login.refreshCookieSuccess=✅ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛᴏᴋᴇɴꜱ ʀᴇꜰʀᴇꜱʜᴇᴅ\nʀᴇꜱᴛᴀʀᴛ ʙᴏᴛ ꜰᴏʀ ᴄʜᴀɴɢᴇꜱ ᴛᴏ ᴛᴀᴋᴇ ᴇꜰꜰᴇᴄᴛ
+login.refreshCookieWarning=⚠️  ᴀᴜᴛᴏ-ʀᴇꜰʀᴇꜱʜ ᴇɴᴀʙʟᴇᴅ ʙᴜᴛ ɴᴏ ᴄʀᴇᴅᴇɴᴛɪᴀʟꜱ ꜰᴏᴜɴᴅ\nᴘʟᴇᴀꜱᴇ ᴄᴏɴꜰɪɢᴜʀᴇ ᴇᴍᴀɪʟ & ᴘᴀꜱꜱᴡᴏʀᴅ ɪɴ ᴄᴏɴꜰɪɢ.ᴊꜱᴏɴ
+login.tokenError=❌ ɪɴᴠᴀʟɪᴅ ᴏʀ ᴇxᴘɪʀᴇᴅ ᴛᴏᴋᴇɴ\nᴘʟᴇᴀꜱᴇ ᴜᴘᴅᴀᴛᴇ %1 ɪɴ %2
+login.cookieError=❌ ɪɴᴠᴀʟɪᴅ ᴏʀ ᴇxᴘɪʀᴇᴅ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛᴏᴋᴇɴꜱ
+login.loginPasswordError=❌ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ\nᴘʟᴇᴀꜱᴇ ᴠᴇʀɪꜰʏ ᴄᴏɴꜰɪɢ.ᴊꜱᴏɴ ᴄʀᴇᴅᴇɴᴛɪᴀʟꜱ
+login.loginSuccess=✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛᴇᴅ
+login.loginError=❌ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴘʀᴏᴄᴇꜱꜱ ꜰᴀɪʟᴇᴅ
+login.openDashboardSuccess=🌐 ʙᴏᴛ ᴅᴀꜱʜʙᴏᴀʀᴅ ᴀᴄᴄᴇꜱꜱɪʙʟᴇ
+login.openDashboardError=❌ ᴜɴᴀʙʟᴇ ᴛᴏ ᴀᴄᴄᴇꜱꜱ ʙᴏᴛ ᴅᴀꜱʜʙᴏᴀʀᴅ
+login.changeGbanData=⚠️  ɢʟᴏʙᴀʟ ʙᴀɴ ᴅᴀᴛᴀ ᴍᴏᴅɪꜰɪᴇᴅ\nʙᴏᴛ ɪɴɪᴛɪᴀʟɪᴢᴀᴛɪᴏɴ ʜᴀʟᴛᴇᴅ
+login.errorNoti=❌ ᴍᴇꜱꜱᴀɢᴇ ʀᴇᴛʀɪᴇᴠᴀʟ ᴇʀʀᴏʀ
+login.refreshFbstateSuccess=✅ ꜰʙꜱᴛᴀᴛᴇ ꜰɪʟᴇ ᴜᴘᴅᴀᴛᴇᴅ: %1
+login.refreshFbstateError=❌ ꜰʙꜱᴛᴀᴛᴇ ꜰɪʟᴇ ᴜᴘᴅᴀᴛᴇ ꜰᴀɪʟᴇᴅ: %1
+login.youAreBanned=🚫 ɢʟᴏʙᴀʟʟʏ ʙʟᴏᴄᴋᴇᴅ ꜰʀᴏᴍ ɢᴏᴀᴛ-ʙᴏᴛ ᴇᴄᴏꜱʏꜱᴛᴇᴍ
+login.runBot=🚀 ʙᴏᴛ ɪɴɪᴛɪᴀʟɪᴢᴀᴛɪᴏɴ ᴄᴏᴍᴘʟᴇᴛᴇ\nʀᴇᴀᴅʏ ᴛᴏ ʀᴇᴄᴇɪᴠᴇ ᴍᴇꜱꜱᴀɢᴇꜱ
+login.notLoggedIn=❌ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ɪꜱꜱᴜᴇ ᴅᴇᴛᴇᴄᴛᴇᴅ\nᴘʟᴇᴀꜱᴇ ᴠᴇʀɪꜰʏ ꜰᴀᴄᴇʙᴏᴏᴋ ᴀᴄᴄᴏᴜɴᴛ
+login.callBackError=❌ ᴄᴀʟʟʙᴀᴄᴋ ʜᴀɴᴅʟᴇʀ ᴇʀʀᴏʀ
+login.userBanned=🚫 ʙᴏᴛ ᴀᴄᴄᴇꜱꜱ ʀᴇᴠᴏᴋᴇᴅ
+login.checkGbanError=❌ ɢʟᴏʙᴀʟ ʙʟᴏᴄᴋ ʀᴇᴛʀɪᴇᴠᴀʟ ꜰᴀɪʟᴇᴅ\nᴜᴘᴅᴀᴛᴇ ꜱᴏᴜʀᴄᴇ ᴛᴏ ʟᴀᴛᴇꜱᴛ ᴠᴇʀꜱɪᴏɴ
+login.gbanMessage=🚫 ɢʟᴏʙᴀʟ ʙʟᴏᴄᴋ ɴᴏᴛɪᴄᴇ\n├─ ɪꜱꜱᴜᴇᴅ ᴏɴ: %1\n├─ ʀᴇᴀꜱᴏɴ: %2\n└─ ᴛɪᴍᴇꜱᴛᴀᴍᴘ: %3
+login.gbanMessageToDate=🚫 ɢʟᴏʙᴀʟ ʙʟᴏᴄᴋ ɴᴏᴛɪᴄᴇ\n├─ ɪꜱꜱᴜᴇᴅ ᴏɴ: %1\n├─ ʀᴇᴀꜱᴏɴ: %2\n├─ ᴛɪᴍᴇꜱᴛᴀᴍᴘ: %3\n└─ ᴇxᴘɪʀᴇꜱ: %4
+login.gbanAdminMessage=📋 ɢʟᴏʙᴀʟ ʙʟᴏᴄᴋ ʟᴏɢ\n├─ ᴜꜱᴇʀ: %1\n├─ ᴅᴀᴛᴇ: %2\n└─ ʀᴇᴀꜱᴏɴ: %3
+login.openServerUptimeSuccess=🚀 ᴜᴘᴛɪᴍᴇ ᴍᴏɴɪᴛᴏʀ ᴀᴄᴛɪᴠᴇ • ᴜʀʟ: %1
+login.openServerUptimeError=❌ ᴜᴘᴛɪᴍᴇ ᴍᴏɴɪᴛᴏʀ ɪɴɪᴛɪᴀʟɪᴢᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ
+login.restartListenMessage=🔄 ʟɪꜱᴛᴇɴᴇʀ ᴀᴜᴛᴏ-ʀᴇꜱᴛᴀʀᴛ ᴇɴᴀʙʟᴇᴅ • ɪɴᴛᴇʀᴠᴀʟ: %1
+login.stopRestartListenMessage=⏹️ ʟɪꜱᴛᴇɴᴇʀ ᴀᴜᴛᴏ-ʀᴇꜱᴛᴀʀᴛ ᴅɪꜱᴀʙʟᴇᴅ
+login.restartListenMessageError=❌ ʟɪꜱᴛᴇɴᴇʀ ʀᴇꜱᴛᴀʀᴛ ꜰᴀɪʟᴇᴅ
+login.restartListenMessage2=✅ ʟɪꜱᴛᴇɴᴇʀ ꜱᴇʀᴠɪᴄᴇ ʀᴇꜱᴛᴀʀᴛᴇᴅ
+login.refreshCookieAfter=🔄 ᴀᴜᴛᴏᴍᴀᴛɪᴄ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ʀᴇɴᴇᴡᴀʟ ɪɴ: %1
+login.listenMqttClose=🔌 ʟɪꜱᴛᴇɴᴇʀ ꜱᴇʀᴠɪᴄᴇ ᴛᴇʀᴍɪɴᴀᴛᴇᴅ
+login.listenMqttCloseByUser=👤 ʟɪꜱᴛᴇɴᴇʀ ꜱᴇʀᴠɪᴄᴇ ᴜꜱᴇʀ-ᴛᴇʀᴍɪɴᴀᴛᴇᴅ
+login.retryCheckLiveCookie=🔄 ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴠᴀʟɪᴅᴀᴛɪᴏɴ ᴀᴛᴛᴇᴍᴘᴛ %1
+login.startBotSuccess=✅ ʙᴏᴛ ꜱᴇʀᴠɪᴄᴇ ᴀᴄᴛɪᴠᴇ • ʀᴇᴀᴅʏ ꜰᴏʀ ᴄᴏᴍᴍᴀɴᴅꜱ
+
+# version.js
+version.tooOldVersion=⚠️  ᴅᴇᴘʀᴇᴄᴀᴛᴇᴅ ᴠᴇʀꜱɪᴏɴ ᴅᴇᴛᴇᴄᴛᴇᴅ\nᴜᴘᴅᴀᴛᴇ ᴄᴏᴍᴍᴀɴᴅ: %1
+
+# bot/custom.js
+custom.refreshedFb_dtsg=✅ ꜰʙ_ᴅᴛꜱɢ & ᴊᴀᴢᴏᴇꜱᴛ ᴛᴏᴋᴇɴꜱ ᴜᴘᴅᴀᴛᴇᴅ
+custom.refreshedFb_dtsgError=❌ ᴛᴏᴋᴇɴ ʀᴇꜰʀᴇꜱʜ ᴏᴘᴇʀᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ
+
+# bot/login/loadData.js
+loadData.loadThreadDataSuccess=📊 ɢʀᴏᴜᴘ ᴅᴀᴛᴀ ʟᴏᴀᴅᴇᴅ: %1
+loadData.loadUserDataSuccess=👤 ᴜꜱᴇʀ ᴅᴀᴛᴀ ʟᴏᴀᴅᴇᴅ: %1
+loadData.refreshingThreadData=🔄 ɢʀᴏᴜᴘ ᴅᴀᴛᴀ ꜱʏɴᴄʜʀᴏɴɪᴢᴀᴛɪᴏɴ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ...
+loadData.refreshThreadDataSuccess=✅ ɢʀᴏᴜᴘ ᴅᴀᴛᴀ ᴜᴘᴅᴀᴛᴇᴅ: %1
+loadData.refreshThreadDataError=❌ ɢʀᴏᴜᴘ ᴅᴀᴛᴀ ꜱʏɴᴄʜʀᴏɴɪᴢᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ
+
+# bot/login/loadScripts.js
+loadScripts.loadScriptsError=❌ ᴍᴏᴅᴜʟᴇ ʟᴏᴀᴅɪɴɢ ᴇʀʀᴏʀꜱ ᴅᴇᴛᴇᴄᴛᴇᴅ:\n%1
+loadScripts.loadScriptsNotMatchOrigin=⚠️  ᴍᴏᴅɪꜰɪᴇᴅ ꜰɪʟᴇꜱ ᴅᴇᴛᴇᴄᴛᴇᴅ:\n%1
+loadScripts.NOT_FOUND=🔍 ꜰɪʟᴇꜱ ɴᴏᴛ ꜰᴏᴜɴᴅ ɪɴ ᴏʀɪɢɪɴᴀʟ ꜱᴏᴜʀᴄᴇ:
+loadScripts.NOT_MATCH=⚠️  ꜰɪʟᴇꜱ ᴅᴏ ɴᴏᴛ ᴍᴀᴛᴄʜ ᴏʀɪɢɪɴᴀʟ ꜱᴏᴜʀᴄᴇ:
+
+# bot/login/socketIO.js
+socketIO.connected=🔗 ꜱᴏᴄᴋᴇᴛ.ɪᴏ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ᴇꜱᴛᴀʙʟɪꜱʜᴇᴅ
+socketIO.error=❌ ꜱᴏᴄᴋᴇᴛ.ɪᴏ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ꜰᴀɪʟᴇᴅ
+
+# bot/handler/handlerCheckData.js
+handlerCheckData.cantCreateThread=❌ ᴜɴᴀʙʟᴇ ᴛᴏ ᴄʀᴇᴀᴛᴇ ɢʀᴏᴜᴘ ᴇɴᴛʀʏ: %1
+handlerCheckData.cantCreateUser=❌ ᴜɴᴀʙʟᴇ ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴜꜱᴇʀ ᴇɴᴛʀʏ: %1
+
+# bot/handler/handlerEvents.js
+handlerEvents.prefixOnly=❌ ᴇxᴇᴄᴜᴛɪᴏɴ ᴇʀʀᴏʀ ᴄᴏᴍᴍᴀɴᴅ ɴᴏᴛ ʀᴇᴄᴏɢɴɪᴢᴇᴅ!
+handlerEvents.onlyPrefix=— ℹ️ ᴛʜɪꜱ ɪꜱ ᴍʏ ᴘʀᴇꜰɪx. ᴛʏᴘᴇ %1ʜᴇʟᴘ ᴛᴏ ꜱᴇᴇ ᴄᴏᴍᴍᴀɴᴅꜱ.
+handlerEvents.userBanned=🚫 ᴜꜱᴇʀ ʙʟᴏᴄᴋᴇᴅ\n├─ ʀᴇᴀꜱᴏɴ: %1\n├─ ᴛɪᴍᴇ: %2\n└─ ᴜꜱᴇʀ ɪᴅ: %3
+handlerEvents.threadBanned=🚫 ɢʀᴏᴜᴘ ʙʟᴏᴄᴋᴇᴅ\n├─ ʀᴇᴀꜱᴏɴ: %1\n├─ ᴛɪᴍᴇ: %2\n└─ ɢʀᴏᴜᴘ ɪᴅ: %3
+handlerEvents.onlyAdminBox=👑 ᴀᴅᴍɪɴɪꜱᴛʀᴀᴛᴏʀ-ᴏɴʟʏ ᴍᴏᴅᴇ ᴀᴄᴛɪᴠᴇ
+handlerEvents.onlyAdminBot=❌ ʀᴇꜱᴛʀɪᴄᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ • ʙᴏᴛ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.commandNotFound=❌ ᴄᴏᴍᴍᴀɴᴅ ɴᴏᴛ ʀᴇᴄᴏɢɴɪᴢᴇᴅ: "%1"\nᴛʀʏ: %2ʜᴇʟᴘ
+handlerEvents.commandNotFound2=🤖 ᴄᴏᴍᴍᴀɴᴅ ɴᴏᴛ ꜰᴏᴜɴᴅ\nᴛʀʏ: %1ʜᴇʟᴘ ꜰᴏʀ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ
+handlerEvents.commandNotFoundWithSuggestion=— ❌ ᴇxᴇᴄᴜᴛɪᴏɴ ᴇʀʀᴏʀ ᴄᴏᴍᴍᴀɴᴅ ɴᴏᴛ ʀᴇᴄᴏɢɴɪᴢᴇᴅ!
+handlerEvents.commandSyntaxError=❌ ɪɴᴠᴀʟɪᴅ ꜱʏɴᴛᴀx\nᴜꜱᴀɢᴇ: %1ʜᴇʟᴘ %2
+handlerEvents.onlyAdmin=❌ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ʀᴇQᴜɪʀᴇᴅ\nᴄᴏᴍᴍᴀɴᴅ: "%1" • ɢʀᴏᴜᴘ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.onlyAdminToUseOnReply=❌ ʀᴇᴘʟʏ ꜰᴜɴᴄᴛɪᴏɴ ʀᴇꜱᴛʀɪᴄᴛᴇᴅ\nᴄᴏᴍᴍᴀɴᴅ: "%1" • ɢʀᴏᴜᴘ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.onlyAdminToUseOnReaction=❌ ʀᴇᴀᴄᴛɪᴏɴ ꜰᴜɴᴄᴛɪᴏɴ ʀᴇꜱᴛʀɪᴄᴛᴇᴅ\nᴄᴏᴍᴍᴀɴᴅ: "%1" • ɢʀᴏᴜᴘ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.onlyAdminBot2=❌ ᴀᴅᴍɪɴɪꜱᴛʀᴀᴛɪᴠᴇ ᴀᴄᴄᴇꜱꜱ ʀᴇQᴜɪʀᴇᴅ\nᴄᴏᴍᴍᴀɴᴅ: "%1" • ʙᴏᴛ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.onlyAdminBot2ToUseOnReply=❌ ᴀᴅᴍɪɴ ʀᴇᴘʟʏ ꜰᴜɴᴄᴛɪᴏɴ ʀᴇQᴜɪʀᴇᴅ\nᴄᴏᴍᴍᴀɴᴅ: "%1" • ʙᴏᴛ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.onlyAdminBot2ToUseOnReaction=❌ ᴀᴅᴍɪɴ ʀᴇᴀᴄᴛɪᴏɴ ꜰᴜɴᴄᴛɪᴏɴ ʀᴇQᴜɪʀᴇᴅ\nᴄᴏᴍᴍᴀɴᴅ: "%1" • ʙᴏᴛ ᴀᴅᴍɪɴꜱ ᴏɴʟʏ
+handlerEvents.onlyPremium=— 💎 ᴘʀᴇᴍɪᴜᴍ ᴏɴʟʏ: "%1" ɪꜱ ꜰᴏʀ ᴘʀᴇᴍɪᴜᴍ ᴍᴇᴍʙᴇʀꜱ. ᴄᴏɴᴛᴀᴄᴛ ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴜᴘɢʀᴀᴅᴇ.
+handlerEvents.onlyDeveloper=— 👑 ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴏɴʟʏ: "%1" ɪꜱ ʀᴇꜱᴇʀᴠᴇᴅ ꜰᴏʀ ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ.
+handlerEvents.onlyAdminPrefix=— ❌ ᴛʜᴇ ᴀᴅᴍɪɴ ᴘʀᴇꜰɪx ɪꜱ ᴏɴʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴏʀ ʙᴏᴛ ᴀᴅᴍɪɴꜱ. ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ ɴᴏʀᴍᴀʟ ᴘʀᴇꜰɪx.
+handlerEvents.waitingForCommand=⏳ ᴄᴏᴍᴍᴀɴᴅ ᴄᴏᴏʟᴅᴏᴡɴ ᴀᴄᴛɪᴠᴇ • ʀᴇᴛʀʏ ɪɴ: %1ꜱ
+handlerEvents.errorOccurred=❌ ᴇxᴇᴄᴜᴛɪᴏɴ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.errorOccurred2=❌ ᴄʜᴀᴛ ʜᴀɴᴅʟᴇʀ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.errorOccurred3=❌ ʀᴇᴘʟʏ ʜᴀɴᴅʟᴇʀ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.errorOccurred4=❌ ʀᴇᴀᴄᴛɪᴏɴ ʜᴀɴᴅʟᴇʀ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.errorOccurred5=❌ ᴇᴠᴇɴᴛ ʜᴀɴᴅʟᴇʀ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.errorOccurred6=❌ ᴇᴠᴇɴᴛ ᴘʀᴏᴄᴇꜱꜱɪɴɢ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.errorOccurred7=❌ ɢᴇɴᴇʀɪᴄ ᴇᴠᴇɴᴛ ᴇʀʀᴏʀ [%1]\nᴄᴏᴍᴍᴀɴᴅ: %2\n\n%3
+handlerEvents.cannotFindCommandName=❌ ʀᴇᴘʟʏ ᴛᴀʀɢᴇᴛ ᴜɴɪᴅᴇɴᴛɪꜰɪᴇᴅ
+handlerEvents.cannotFindCommand=❌ ᴜɴᴀʙʟᴇ ᴛᴏ ʟᴏᴄᴀᴛᴇ ᴄᴏᴍᴍᴀɴᴅ: "%1"
+
+# bot/autoUptime.js
+autoUptime.autoUptimeTurnedOn=🔄 ᴀᴜᴛᴏᴍᴀᴛɪᴄ ᴜᴘᴛɪᴍᴇ ᴍᴏɴɪᴛᴏʀɪɴɢ ᴀᴄᴛɪᴠᴀᴛᴇᴅ
+
+# database/controller/index.js
+indexController.connectingMongoDB=🔗 ᴍᴏɴɢᴏᴅʙ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ɪɴɪᴛɪᴀᴛᴇᴅ
+indexController.connectMongoDBSuccess=✅ ᴍᴏɴɢᴏᴅʙ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ᴇꜱᴛᴀʙʟɪꜱʜᴇᴅ
+indexController.connectMongoDBError=❌ ᴍᴏɴɢᴏᴅʙ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ꜰᴀɪʟᴇᴅ:\n%1
+indexController.connectingMySQL=🔗 ᴍʏꜱQʟ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ɪɴɪᴛɪᴀᴛᴇᴅ
+indexController.connectMySQLSuccess=✅ ᴍʏꜱQʟ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ᴇꜱᴛᴀʙʟɪꜱʜᴇᴅ
+indexController.connectMySQLError=❌ ᴍʏꜱQʟ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ꜰᴀɪʟᴇᴅ:\n%1
+indexController.connectingNeon=🔗 ɴᴇᴏɴ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ɪɴɪᴛɪᴀᴛᴇᴅ
+indexController.connectNeonSuccess=✅ ɴᴇᴏɴ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ᴇꜱᴛᴀʙʟɪꜱʜᴇᴅ
+indexController.connectNeonError=❌ ɴᴇᴏɴ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ꜰᴀɪʟᴇᴅ:\n%1
+
+# updater.js
+updater.updateTooFast=⏳ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏʟᴅᴏᴡɴ ᴀᴄᴛɪᴠᴇ • ᴡᴀɪᴛ: %1ᴍ %2ꜱ
+updater.latestVersion=✅ ᴄᴜʀʀᴇɴᴛʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ
+updater.cantFindVersion=⚠️  ᴜɴʀᴇᴄᴏɢɴɪᴢᴇᴅ ᴠᴇʀꜱɪᴏɴ: %1\nᴠᴇʀɪꜰʏ ᴘᴀᴄᴋᴀɢᴇ.ᴊꜱᴏɴ
+updater.newVersions=📦 %1 ᴜᴘᴅᴀᴛᴇ(ꜱ) ᴀᴠᴀɪʟᴀʙʟᴇ • ɪɴɪᴛɪᴀᴛɪɴɢ...
+updater.updateSuccess=✅ ꜱʏꜱᴛᴇᴍ ᴜᴘᴅᴀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ%1
+updater.configChanged=⚙️  ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ᴍᴏᴅɪꜰɪᴄᴀᴛɪᴏɴ ᴅᴇᴛᴇᴄᴛᴇᴅ: %1\nᴠᴇʀɪꜰʏ ᴄᴏɴꜰɪɢ.ᴊꜱᴏɴ
+updater.installingPackages=📦 ᴅᴇᴘᴇɴᴅᴇɴᴄʏ ɪɴꜱᴛᴀʟʟᴀᴛɪᴏɴ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ...
+updater.installSuccess=✅ ᴅᴇᴘᴇɴᴅᴇɴᴄɪᴇꜱ ɪɴꜱᴛᴀʟʟᴇᴅ • ʀᴇꜱᴛᴀʀᴛ ʙᴏᴛ ꜰᴏʀ ᴜᴘᴅᴀᴛᴇꜱ
+updater.backupSuccess=💾 ʙᴀᴄᴋᴜᴘ ᴄʀᴇᴀᴛᴇᴅ • ʟᴏᴄᴀᴛɪᴏɴ: %1
+updater.restartToApply=🔄 ʀᴇꜱᴛᴀʀᴛ ʙᴏᴛ ꜰᴏʀ ᴜᴘᴅᴀᴛᴇ ɪᴍᴘʟᴇᴍᴇɴᴛᴀᴛɪᴏɴ
+updater.skipFile=⚠️  ᴜᴘᴅᴀᴛᴇ ꜱᴋɪᴘᴘᴇᴅ ꜰᴏʀ: %1\nᴄᴏᴍᴍᴇɴᴛ: %2
+
+# dashboard/routes/verifyfbid.js
+verifyfbid.sendCode=🔐 ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ᴛᴏᴋᴇɴ\n├─ ᴄᴏᴅᴇ: %1\n└─ ᴠᴀʟɪᴅ ꜰᴏʀ: %2 ᴍɪɴᴜᴛᴇꜱ
+
+# utils.js
+utils.errorOccurred=❌ ᴏᴘᴇʀᴀᴛɪᴏɴ ᴇʀʀᴏʀ:\n\n%1
+
+# for command
+command.restartedBot=🔄 ʙᴏᴛ ꜱᴇʀᴠɪᴄᴇ ʀᴇꜱᴛᴀʀᴛᴇᴅ
+
+# dashboard/app.js
+app.googleApiRefreshTokenExpired=🔐 ɢᴏᴏɢʟᴇ ᴀᴘɪ ᴛᴏᴋᴇɴ ᴇxᴘɪʀᴇᴅ\nʀᴇɴᴇᴡ ᴀᴛ: https://developers.google.com/oauthplayground/
+app.tooManyRequests=⚠️  ʀᴀᴛᴇ ʟɪᴍɪᴛ ᴇxᴄᴇᴇᴅᴇᴅ\nᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ
+app.notPermissionChangeFbstate=❌ ɪɴꜱᴜꜰꜰɪᴄɪᴇɴᴛ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ ꜰᴏʀ ꜰʙꜱᴛᴀᴛᴇ ᴍᴏᴅɪꜰɪᴄᴀᴛɪᴏɴ
+app.notFoundFbstate=⚠️  ꜰʙꜱᴛᴀᴛᴇ ᴅᴀᴛᴀ ɴᴏᴛ ꜱᴜᴘᴘʟɪᴇᴅ
+app.changedFbstateSuccess=✅ ꜰʙꜱᴛᴀᴛᴇ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ ᴜᴘᴅᴀᴛᴇᴅ
+app.serverError=❌ ꜱᴇʀᴠᴇʀ ᴇʀʀᴏʀ • ᴘʟᴇᴀꜱᴇ ʀᴇᴛʀʏ
