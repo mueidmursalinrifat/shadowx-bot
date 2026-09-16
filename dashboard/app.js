@@ -94,7 +94,7 @@ module.exports = async (api) => {
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(cookieParser());
         const sessionSecret = process.env.SESSION_SECRET
-                || (config.dashBoard?.adminKey ? config.dashBoard.adminKey + "_x69x_session_v3" : null)
+                || (config.dashBoard?.adminKey ? config.dashBoard.adminKey + "_shadowx_session_v4" : null)
                 || randomStringApikey(32);
         app.use(session({
                 secret: sessionSecret,
@@ -202,15 +202,15 @@ module.exports = async (api) => {
         app.get(["/health", "/ping", "/alive"], (req, res) => {
                 res.status(200).json({
                         status: "ok",
-                        bot: global.GoatBot?.config?.nameBot || "X69X BOT V3",
+                        bot: global.GoatBot?.config?.nameBot || "SHADOWX-BOT",
                         uptime: Math.floor(process.uptime()),
                         timestamp: new Date().toISOString()
                 });
         });
 
-        // Home route - serve azadx69x landing page
+        // Home route - serve SHADOWX landing page
         app.get(["/", "/home"], (req, res) => {
-                res.sendFile(path.join(__dirname, "azadx69x.html"));
+                res.sendFile(path.join(__dirname, "shadowx.html"));
         });
 
         // Stats API - JSON data

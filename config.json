@@ -100,7 +100,7 @@
     "enable": true,
     "expireVerifyCode": 300000,
     "port": 5000,
-    "adminKey": "x69xadmin"
+    "adminKey": "shadowxadmin"
   },
   "serverUptime": {
     "enable": false,
