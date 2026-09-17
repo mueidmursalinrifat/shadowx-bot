@@ -36,6 +36,7 @@
     "net": "^1.0.2",
     "node-cron": "^3.0.2",
     "nodemailer": "^6.7.5",
+    "number-allocator": "^1.0.14",
     "ora": "^5.4.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
@@ -49,7 +50,8 @@
     "shadowx-fca": "^10.7.0",
     "socket.io": "^4.5.1",
     "sqlite3": "^5.0.2",
-    "stream": "^0.0.3"
+    "stream": "^0.0.3",
+    "websocket-stream": "^5.5.2"
   },
   "scripts": {
     "start": "set NODE_ENV=&& node index.js",

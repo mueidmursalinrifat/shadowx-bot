@@ -3302,6 +3302,43 @@ async function startBot(
                     accountFile
                   ),
 
+                isSessionAlive:
+                  async () => {
+                    try {
+                      if (
+                        typeof api
+                          .getUserInfo !==
+                        "function"
+                      ) {
+                        return true;
+                      }
+
+                      const info =
+                        await api.getUserInfo(
+                          global.GoatBot
+                            ?.botID ||
+                            accountID ||
+                            ""
+                        );
+
+                      return !!info;
+                    } catch (_) {
+                      return false;
+                    }
+                  },
+
+                onSessionStale:
+                  async () => {
+                    log.warn(
+                      "MQTT_WATCHDOG",
+                      "Stale session detected - re-logging into the current account."
+                    );
+
+                    await global.GoatBot.reLoginBot(
+                      accountFile
+                    );
+                  },
+
                 onUnrecoverable:
                   async () => {
                     await switchToNextAccount(

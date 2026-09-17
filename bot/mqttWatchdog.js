@@ -26,6 +26,8 @@ const DEFAULT_CHECK_INTERVAL_MS = 15000;
 const DEFAULT_MAX_ATTEMPTS = 3;
 const DEFAULT_GRACE_MS = 8000;
 const DEFAULT_RESTART_TIMEOUT_MS = 10000;
+const DEFAULT_SESSION_PROBE_TIMEOUT_MS = 12000;
+const DEFAULT_SESSION_FAIL_THRESHOLD = 2;
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -46,10 +48,14 @@ module.exports = function startMqttWatchdog(options) {
     restartListen,
     hasAlternate,
     onUnrecoverable,
+    isSessionAlive,
+    onSessionStale,
     checkIntervalMs = DEFAULT_CHECK_INTERVAL_MS,
     maxAttempts = DEFAULT_MAX_ATTEMPTS,
     graceMs = DEFAULT_GRACE_MS,
-    restartTimeoutMs = DEFAULT_RESTART_TIMEOUT_MS
+    restartTimeoutMs = DEFAULT_RESTART_TIMEOUT_MS,
+    sessionProbeTimeoutMs = DEFAULT_SESSION_PROBE_TIMEOUT_MS,
+    sessionFailThreshold = DEFAULT_SESSION_FAIL_THRESHOLD
   } = options || {};
 
   if (
@@ -63,6 +69,7 @@ module.exports = function startMqttWatchdog(options) {
   let busy = false;
   let stopped = false;
   let timer = null;
+  let sessionFailures = 0;
 
   function currentSessionOk() {
     return (
@@ -84,6 +91,33 @@ module.exports = function startMqttWatchdog(options) {
       return typeof hasAlternate === "function"
         ? hasAlternate() === true
         : false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /*
+   * Session liveness probe.
+   *
+   * The MQTT socket can stay connected while the underlying
+   * Messenger session token has gone stale — the bot then
+   * receives messages but every API call (getThreadInfo etc.)
+   * returns null, so it silently stops replying. The health
+   * endpoint stays green, which is why this probe exists.
+   */
+  async function sessionAlive() {
+    if (typeof isSessionAlive !== "function") {
+      return true;
+    }
+
+    try {
+      const result = await withTimeout(
+        isSessionAlive(),
+        sessionProbeTimeoutMs,
+        null
+      );
+
+      return result === true;
     } catch (_) {
       return false;
     }
@@ -113,13 +147,63 @@ module.exports = function startMqttWatchdog(options) {
     }
 
     if (alive()) {
-      if (attempts > 0) {
-        log.success("MQTT_WATCHDOG", "MQTT connection is healthy again.");
+      busy = true;
+
+      try {
+        const ok = await sessionAlive();
+
+        if (!ok) {
+          sessionFailures += 1;
+
+          if (sessionFailures < sessionFailThreshold) {
+            log.warn(
+              "MQTT_WATCHDOG",
+              `Socket is up but the session looks stale (${sessionFailures}/${sessionFailThreshold} failures)...`
+            );
+
+            return;
+          }
+
+          log.error(
+            "MQTT_WATCHDOG",
+            "Session is stale - the socket is connected but API calls are failing. Re-logging in..."
+          );
+
+          stop();
+
+          try {
+            await onSessionStale();
+          } catch (err) {
+            log.error(
+              "MQTT_WATCHDOG",
+              `Session recovery error: ${
+                err && err.message ? err.message : String(err)
+              }`
+            );
+          }
+
+          return;
+        }
+
+        if (sessionFailures > 0) {
+          log.success("MQTT_WATCHDOG", "Session is healthy again.");
+        }
+
+        sessionFailures = 0;
+
+        if (attempts > 0) {
+          log.success("MQTT_WATCHDOG", "MQTT connection is healthy again.");
+        }
+
+        attempts = 0;
+      } finally {
+        busy = false;
       }
 
-      attempts = 0;
       return;
     }
+
+    sessionFailures = 0;
 
     busy = true;
 
