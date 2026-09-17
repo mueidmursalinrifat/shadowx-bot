@@ -47,7 +47,7 @@
     "qs": "^6.13.1",
     "request": "^2.88.2",
     "sequelize": "^6.19.0",
-    "shadowx-fca": "^10.7.0",
+    "shadowx-fca": "^10.8.0",
     "socket.io": "^4.5.1",
     "sqlite3": "^5.0.2",
     "stream": "^0.0.3",
