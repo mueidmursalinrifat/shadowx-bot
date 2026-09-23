@@ -1,8 +1,8 @@
 module.exports = {
   config: {
     name: "fork",
-    version: "4.0",
-    author: "xalman",
+    version: "2.0",
+    author: "Mueid Mursalin Rifat",
     countDown: 5,
     role: 0,
     shortDescription: "Show github repository link ",
@@ -14,23 +14,24 @@ module.exports = {
 
   langs: {
     en: {
-      current: `📌 𝐆𝐎𝐀𝐓-𝐁𝐎𝐓
-━━━━━━━━━━━━━━━━━━━━━━━━
-👑 𝐜𝐨𝐧𝐭𝐫𝐢𝐛𝐮𝐭𝐨𝐫 : NΞGΛTIVΞ XΛLMΛN
-🔗 𝐫𝐞𝐩𝐨𝐬𝐢𝐭𝐨𝐫𝐲      : %1
-💎 𝐬𝐭𝐚𝐭𝐮𝐬   : 𝐚𝐥𝐰𝐚𝐲𝐬 𝐮𝐩𝐝𝐚𝐭𝐢𝐧𝐠
-━━━━━━━━━━━━━━━━━━━━━━━━`
+      current: `🌑 𝐒𝐇𝐀𝐃𝐎𝐖𝐗 𝐁𝐎𝐓 🌑
+━━━━━━━━━━━━━━━━━━━━
+👤 𝐎𝐰𝐧𝐞𝐫 : 𝐌𝐮𝐞𝐢𝐝 𝐌𝐮𝐫𝐬𝐚𝐥𝐢𝐧 𝐑𝐢𝐟𝐚𝐭
+🔗 𝐑𝐞𝐩𝐨   : %1
+💎 𝐒𝐭𝐚𝐭𝐮𝐬 : 𝐀𝐥𝐰𝐚𝐲𝐬 𝐔𝐩𝐝𝐚𝐭𝐢𝐧𝐠
+━━━━━━━━━━━━━━━━━━━━
+⭐ 𝐅𝐨𝐫𝐤 • 𝐒𝐭𝐚𝐫 • 𝐄𝐧𝐣𝐨𝐲 ⭐`
     }
   },
 
   onStart: async function ({ message, getLang }) {
-    const link = "https://github.com/goatbotnx/GOAT-BOT-UPDATED";
+    const link = "https://github.com/mueidmursalinrifat/shadowx-bot";
     return message.reply(getLang("current", link));
   },
 
   onChat: async function ({ message, getLang, event }) {
     if (event.body && event.body.toLowerCase() === "fork") {
-      const link = "https://github.com/goatbotnx/GOAT-BOT-UPDATED";
+      const link = "https://github.com/mueidmursalinrifat/shadowx-bot";
       return message.reply(getLang("current", link));
     }
   }
